@@ -28,7 +28,7 @@ async function createPixCharge(amount, comment = '') {
 
   try {
     const response = await fetch(
-      'https://api.solutpag.com/api/public/v1/transactions/pix',
+      'https://api.vetuspay.com/api/public/v1/transactions/pix',
       {
         method: 'POST',
         headers: headers,
@@ -84,7 +84,7 @@ def create_pix_charge(amount_cents, comment=''):
     
     try:
         response = requests.post(
-            'https://api.solutpag.com/api/public/v1/transactions/pix',
+            'https://api.vetuspay.com/api/public/v1/transactions/pix',
             json=payload,
             headers=headers,
             timeout=30
@@ -123,7 +123,7 @@ public class PixCreateExample {
 
     HttpClient client = HttpClient.newHttpClient();
     HttpRequest request = HttpRequest.newBuilder()
-      .uri(URI.create("https://api.solutpag.com/api/public/v1/transactions/pix"))
+      .uri(URI.create("https://api.vetuspay.com/api/public/v1/transactions/pix"))
       .timeout(Duration.ofSeconds(30))
       .header("Authorization", "Bearer sk_live_SEU_TOKEN_AQUI")
       .header("Content-Type", "application/json")
@@ -171,7 +171,7 @@ export default function PixCreateDemo() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch('https://api.solutpag.com/api/public/v1/transactions/pix', {
+      const res = await fetch('https://api.vetuspay.com/api/public/v1/transactions/pix', {
         method: 'POST',
         headers: {
           'Authorization': 'Bearer sk_live_SEU_TOKEN_AQUI',

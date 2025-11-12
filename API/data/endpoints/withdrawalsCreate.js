@@ -27,7 +27,7 @@ async function requestWithdrawal(amountCents) {
 
   try {
     const response = await fetch(
-      'https://api.solutpag.com/api/public/v1/withdrawals',
+      'https://api.vetuspay.com/api/public/v1/withdrawals',
       {
         method: 'POST',
         headers: headers,
@@ -81,7 +81,7 @@ def request_withdrawal(amount_cents):
     
     try:
         response = requests.post(
-            'https://api.solutpag.com/api/public/v1/withdrawals',
+            'https://api.vetuspay.com/api/public/v1/withdrawals',
             json=payload,
             headers=headers,
             timeout=60
@@ -116,7 +116,7 @@ public class WithdrawalCreateExample {
     String json = "{" + "\\\"amount_cents\\\":10000" + "}";
     HttpClient client = HttpClient.newHttpClient();
     HttpRequest request = HttpRequest.newBuilder()
-      .uri(URI.create("https://api.solutpag.com/api/public/v1/withdrawals"))
+      .uri(URI.create("https://api.vetuspay.com/api/public/v1/withdrawals"))
       .timeout(Duration.ofSeconds(60))
       .header("Authorization", "Bearer sk_live_SEU_TOKEN_AQUI")
       .header("Content-Type", "application/json")
@@ -166,7 +166,7 @@ export default function WithdrawalForm() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch('https://api.solutpag.com/api/public/v1/withdrawals', {
+      const res = await fetch('https://api.vetuspay.com/api/public/v1/withdrawals', {
         method: 'POST',
         headers: {
           'Authorization': 'Bearer sk_live_SEU_TOKEN_AQUI',

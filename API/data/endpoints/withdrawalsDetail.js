@@ -15,7 +15,7 @@ export const withdrawalsDetailSection = {
       code: `
 async function getWithdrawalDetails(wid) {
   try {
-    const response = await fetch(\`https://api.solutpag.com/api/public/v1/withdrawals/\${wid}\`, {
+    const response = await fetch(\`https://api.vetuspay.com/api/public/v1/withdrawals/\${wid}\`, {
       method: 'GET',
       headers: {
         'Authorization': 'Bearer sk_live_SEU_TOKEN_AQUI',
@@ -65,7 +65,7 @@ def get_withdrawal_details(wid):
     """
     try:
         response = requests.get(
-            f'https://api.solutpag.com/api/public/v1/withdrawals/{wid}',
+            f'https://api.vetuspay.com/api/public/v1/withdrawals/{wid}',
             headers={
                 'Authorization': 'Bearer sk_live_SEU_TOKEN_AQUI',
                 'Accept': 'application/json'
@@ -104,7 +104,7 @@ public class WithdrawalDetailExample {
     String wid = "WID-20251022-1A2B3C";
     HttpClient client = HttpClient.newHttpClient();
     HttpRequest request = HttpRequest.newBuilder()
-      .uri(URI.create("https://api.solutpag.com/api/public/v1/withdrawals/" + wid))
+      .uri(URI.create("https://api.vetuspay.com/api/public/v1/withdrawals/" + wid))
       .header("Authorization", "Bearer sk_live_SEU_TOKEN_AQUI")
       .header("Accept", "application/json")
       .GET()
@@ -151,7 +151,7 @@ export default function WithdrawalDetailsViewer({ wid = 'WID-20251022-1A2B3C' })
   useEffect(() => {
     const run = async () => {
       try {
-        const res = await fetch('https://api.solutpag.com/api/public/v1/withdrawals/' + wid, {
+        const res = await fetch('https://api.vetuspay.com/api/public/v1/withdrawals/' + wid, {
           headers: { 'Authorization': 'Bearer sk_live_SEU_TOKEN_AQUI', 'Accept': 'application/json' }
         });
         if (res.status === 404) throw new Error('Saque não encontrado');

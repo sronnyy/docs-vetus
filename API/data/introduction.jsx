@@ -6,13 +6,13 @@ export const introductionSections = [
     id: 'overview',
     title: 'Visão Geral',
     category: 'introduction',
-    description: 'Entenda os conceitos fundamentais e como a API SolutPag funciona.',
+    description: 'Entenda os conceitos fundamentais e como a API Vetuspay funciona.',
     content: (
       <div className="space-y-6">
-        <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-6">
-          <h3 className="text-lg font-semibold text-blue-400 mb-3"><FaRocket className="inline-block w-5 h-5 mr-2" /> Comece Aqui</h3>
-          <p className="text-blue-300">
-            A API SolutPag permite integração completa com nossa plataforma de pagamentos.
+        <div className="bg-[var(--color-primary-2)]/10 border border-[var(--color-primary-2)]/20 rounded-xl p-6">
+          <h3 className="text-lg font-semibold text-[var(--color-primary-2)] mb-3"><FaRocket className="inline-block w-5 h-5 mr-2" /> Comece Aqui</h3>
+          <p className="text-[var(--color-primary-2)]/90">
+            A API Vetuspay permite integração completa com nossa plataforma de pagamentos.
             Desenvolvida para ser simples, segura e eficiente.
           </p>
         </div>
@@ -23,17 +23,17 @@ export const introductionSections = [
               <FaCreditCard className="w-6 h-6" />
             </div>
             <h4 className="font-semibold text-white mb-2">Pagamentos PIX</h4>
-            <p className="text-gray-400 text-sm">
+            <p className="text-neutral-400 text-sm">
               Crie cobranças PIX instantâneas com QR Code e receba pagamentos em tempo real.
             </p>
           </div>
 
           <div className="bg-white/5 rounded-xl p-6">
-            <div className="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4">
+            <div className="w-10 h-10 bg-[var(--color-primary-2)]/10 rounded-lg flex items-center justify-center mb-4">
               <FaMoneyBillWave className="w-6 h-6" />
             </div>
             <h4 className="font-semibold text-white mb-2">Gestão de Saldo</h4>
-            <p className="text-gray-400 text-sm">
+            <p className="text-neutral-400 text-sm">
               Consulte saldos disponíveis, valores bloqueados e gerencie suas finanças.
             </p>
           </div>
@@ -43,7 +43,7 @@ export const introductionSections = [
               <FaSyncAlt className="w-6 h-6" />
             </div>
             <h4 className="font-semibold text-white mb-2">Saque Automático</h4>
-            <p className="text-gray-400 text-sm">
+            <p className="text-neutral-400 text-sm">
               Solicite saques automáticos para o CPF cadastrado via transferência PIX.
             </p>
           </div>
@@ -53,7 +53,7 @@ export const introductionSections = [
               <FaLock className="w-6 h-6" />
             </div>
             <h4 className="font-semibold text-white mb-2">Segurança</h4>
-            <p className="text-gray-400 text-sm">
+            <p className="text-neutral-400 text-sm">
               Autenticação robusta com API Tokens e criptografia de ponta a ponta.
             </p>
           </div>
@@ -89,10 +89,10 @@ export const introductionSections = [
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-white/5 rounded-xl p-6">
             <h4 className="font-semibold text-white mb-3"><FaKey className="inline-block w-5 h-5 mr-2" /> API Token</h4>
-            <p className="text-gray-400 text-sm mb-4">
+            <p className="text-neutral-400 text-sm mb-4">
               Crie e gerencie seus tokens no painel administrativo → API Tokens.
             </p>
-            <ul className="text-sm text-gray-400 space-y-2">
+            <ul className="text-sm text-neutral-400 space-y-2">
               <li>• Selecione os scopes necessários</li>
               <li>• Mantenha o token no servidor</li>
               <li>• Use HTTPS sempre</li>
@@ -103,27 +103,27 @@ export const introductionSections = [
             <h4 className="font-semibold text-white mb-3"><FaClipboardList className="inline-block w-5 h-5 mr-2" /> Headers Obrigatórios</h4>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between py-2 border-b border-white/10">
-                <code className="text-blue-400">Authorization</code>
-                <span className="text-gray-400">Bearer TOKEN</span>
+                <code className="text-[var(--color-primary-2)]">Authorization</code>
+                <span className="text-neutral-400">Bearer TOKEN</span>
               </div>
               <div className="flex justify-between py-2 border-b border-white/10">
-                <code className="text-blue-400">Content-Type</code>
-                <span className="text-gray-400">application/json</span>
+                <code className="text-[var(--color-primary-2)]">Content-Type</code>
+                <span className="text-neutral-400">application/json</span>
               </div>
               <div className="flex justify-between py-2">
-                <code className="text-blue-400">Accept</code>
-                <span className="text-gray-400">application/json</span>
+                <code className="text-[var(--color-primary-2)]">Accept</code>
+                <span className="text-neutral-400">application/json</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="bg-blue-500/10 rounded-xl p-6 border border-blue-500/20">
-          <h4 className="font-semibold text-blue-400 mb-3"><FaLock className="inline-block w-5 h-5 mr-2" /> Idempotency Key</h4>
-          <p className="text-blue-300 text-sm mb-3">
+        <div className="bg-[var(--color-primary-2)]/10 rounded-xl p-6 border border-[var(--color-primary-2)]/20">
+          <h4 className="font-semibold text-[var(--color-primary-2)] mb-3"><FaLock className="inline-block w-5 h-5 mr-2" /> Idempotency Key</h4>
+          <p className="text-[var(--color-primary-2)]/90 text-sm mb-3">
             Para operações que criam recursos (POST), use sempre Idempotency-Key para evitar duplicações:
           </p>
-          <code className="block bg-blue-500/10 text-blue-300 px-3 py-2 rounded-lg text-sm">
+          <code className="block bg-[var(--color-primary-2)]/10 text-[var(--color-primary-2)]/90 px-3 py-2 rounded-lg text-sm">
             Idempotency-Key: 123e4567-e89b-12d3-a456-426614174000
           </code>
         </div>
@@ -142,7 +142,7 @@ const headers = {
 };
 
 // Exemplo de uso com fetch
-const response = await fetch('https://api.solutpag.com/api/public/v1/balance', {
+const response = await fetch('https://api.vetuspay.com/api/public/v1/balance', {
   method: 'GET',
   headers: headers
 });`
@@ -163,7 +163,7 @@ headers = {
 
 # Exemplo de requisição
 response = requests.get(
-    'https://api.solutpag.com/api/public/v1/balance',
+    'https://api.vetuspay.com/api/public/v1/balance',
     headers=headers
 )`
       }

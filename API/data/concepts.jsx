@@ -22,7 +22,7 @@ export const conceptsSections = [
               scope: 'wallet:read',
               description: 'Consultar saldo e informações das wallets',
               endpoints: ['GET /balance', 'GET /wallets'],
-              color: 'blue'
+              color: 'cyan'
             },
             {
               scope: 'payments:create',
@@ -61,7 +61,7 @@ export const conceptsSections = [
               <p className={`text-${item.color}-300 text-sm mb-3`}>
                 {item.description}
               </p>
-              <div className="text-xs text-gray-400">
+              <div className="text-xs text-neutral-400">
                 <strong>Endpoints:</strong> {item.endpoints.join(', ')}
               </div>
             </div>
@@ -70,7 +70,7 @@ export const conceptsSections = [
 
         <div className="bg-white/5 rounded-xl p-6">
           <h4 className="font-semibold text-white mb-3"><FaLightbulb className="inline-block w-5 h-5 mr-2" /> Boas Práticas</h4>
-          <ul className="text-sm text-gray-400 space-y-2">
+          <ul className="text-sm text-neutral-400 space-y-2">
             <li>• Use o princípio do menor privilégio - conceda apenas as permissões necessárias</li>
             <li>• Revise periodicamente os tokens ativos e suas permissões</li>
             <li>• Crie tokens específicos para diferentes aplicações</li>
@@ -99,19 +99,19 @@ export const conceptsSections = [
             <h4 className="font-semibold text-white mb-4"><FaMoneyBillWave className="inline-block w-5 h-5 mr-2" /> Valores Monetários</h4>
             <div className="space-y-3">
               <div className="flex items-center justify-between p-3 bg-white/10 rounded-lg">
-                <span className="text-sm text-gray-400">Valor Real</span>
+                <span className="text-sm text-neutral-400">Valor Real</span>
                 <code className="text-green-400 font-mono">R$ 1,00</code>
               </div>
               <div className="flex items-center justify-between p-3 bg-white/10 rounded-lg">
-                <span className="text-sm text-gray-400">Na API</span>
-                <code className="text-blue-400 font-mono">100</code>
+                <span className="text-sm text-neutral-400">Na API</span>
+                <code className="text-[var(--color-primary-2)] font-mono">100</code>
               </div>
               <div className="flex items-center justify-between p-3 bg-white/10 rounded-lg">
-                <span className="text-sm text-gray-400">R$ 50,00</span>
-                <code className="text-blue-400 font-mono">5000</code>
+                <span className="text-sm text-neutral-400">R$ 50,00</span>
+                <code className="text-[var(--color-primary-2)] font-mono">5000</code>
               </div>
             </div>
-            <p className="text-xs text-gray-400 mt-3">
+            <p className="text-xs text-neutral-400 mt-3">
               <FaLightbulb className="inline-block w-4 h-4 mr-2" /> Todos os valores são representados em centavos (inteiros)
             </p>
           </div>
@@ -120,18 +120,18 @@ export const conceptsSections = [
             <h4 className="font-semibold text-white mb-4"><FaCalendarAlt className="inline-block w-5 h-5 mr-2" /> Datas e Horários</h4>
             <div className="space-y-3">
               <div className="p-3 bg-white/10 rounded-lg">
-                <code className="text-blue-400 font-mono text-sm block">
+                <code className="text-[var(--color-primary-2)] font-mono text-sm block">
                   2025-10-22T14:00:00Z
                 </code>
-                <p className="text-xs text-gray-400 mt-1">
+                <p className="text-xs text-neutral-400 mt-1">
                   Formato ISO 8601 UTC
                 </p>
               </div>
               <div className="p-3 bg-white/10 rounded-lg">
-                <code className="text-blue-400 font-mono text-sm block">
+                <code className="text-[var(--color-primary-2)] font-mono text-sm block">
                   2025-10-22T14:00:00-03:00
                 </code>
-                <p className="text-xs text-gray-400 mt-1">
+                <p className="text-xs text-neutral-400 mt-1">
                   Com timezone específico
                 </p>
               </div>
@@ -139,12 +139,12 @@ export const conceptsSections = [
           </div>
         </div>
 
-        <div className="bg-blue-500/10 rounded-xl p-6 border border-blue-500/20">
-          <h4 className="font-semibold text-blue-400 mb-3"><FaBullseye className="inline-block w-5 h-5 mr-2" /> Estrutura de Respostas</h4>
+        <div className="bg-[var(--color-primary-2)]/10 rounded-xl p-6 border border-[var(--color-primary-2)]/20">
+          <h4 className="font-semibold text-[var(--color-primary-2)] mb-3"><FaBullseye className="inline-block w-5 h-5 mr-2" /> Estrutura de Respostas</h4>
           <div className="grid md:grid-cols-2 gap-4 text-sm">
             <div>
-              <h5 className="font-medium text-blue-300 mb-2">Sucesso</h5>
-              <pre className="bg-blue-500/10 text-blue-300 p-3 rounded-lg text-xs">
+              <h5 className="font-medium text-[var(--color-primary-2)]/90 mb-2">Sucesso</h5>
+              <pre className="bg-[var(--color-primary-2)]/10 text-[var(--color-primary-2)]/90 p-3 rounded-lg text-xs">
                 {`{
   "data": { ... },
   "status": "success"
@@ -183,7 +183,7 @@ export const conceptsSections = [
           {[
             { code: '200', description: 'OK - Requisição bem-sucedida', color: 'green' },
             { code: '201', description: 'Created - Recurso criado com sucesso', color: 'green' },
-            { code: '202', description: 'Accepted - Requisição aceita para processamento', color: 'blue' },
+            { code: '202', description: 'Accepted - Requisição aceita para processamento', color: 'cyan' },
             { code: '400', description: 'Bad Request - Dados inválidos na requisição', color: 'yellow' },
             { code: '401', description: 'Unauthorized - Token inválido ou ausente', color: 'red' },
             { code: '403', description: 'Forbidden - Permissões insuficientes ou KYC required', color: 'red' },
@@ -209,8 +209,8 @@ export const conceptsSections = [
           <h4 className="font-semibold text-white mb-3"><FaTools className="inline-block w-5 h-5 mr-2" /> Estrutura de Erro</h4>
           <div className="space-y-4">
             <div>
-              <h5 className="text-sm font-medium text-gray-300 mb-2">Exemplo de Resposta de Erro:</h5>
-              <pre className="bg-black/30 text-gray-100 p-4 rounded-lg text-sm">
+              <h5 className="text-sm font-medium text-neutral-300 mb-2">Exemplo de Resposta de Erro:</h5>
+              <pre className="bg-black/30 text-neutral-100 p-4 rounded-lg text-sm">
                 {`{
   "error": "invalid_amount",
   "detail": {
@@ -222,8 +222,8 @@ export const conceptsSections = [
             </div>
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div>
-                <h5 className="font-medium text-gray-300 mb-2">Erros Comuns:</h5>
-                <ul className="text-gray-400 space-y-1">
+                <h5 className="font-medium text-neutral-300 mb-2">Erros Comuns:</h5>
+                <ul className="text-neutral-400 space-y-1">
                   <li>• <code>invalid_amount</code> - Valor inválido</li>
                   <li>• <code>insufficient_funds</code> - Saldo insuficiente</li>
                   <li>• <code>invalid_cpf</code> - CPF inválido ou não cadastrado</li>
@@ -231,8 +231,8 @@ export const conceptsSections = [
                 </ul>
               </div>
               <div>
-                <h5 className="font-medium text-gray-300 mb-2">Boas Práticas:</h5>
-                <ul className="text-gray-400 space-y-1">
+                <h5 className="font-medium text-neutral-300 mb-2">Boas Práticas:</h5>
+                <ul className="text-neutral-400 space-y-1">
                   <li>• Sempre trate possíveis erros</li>
                   <li>• Use try-catch em todas as chamadas</li>
                   <li>• Logs para debugging em produção</li>
@@ -262,11 +262,11 @@ export const conceptsSections = [
         <div className="grid md:grid-cols-2 gap-6">
           <div className="space-y-4">
             <div className="bg-white/5 rounded-xl p-5 border border-white/10">
-              <div className="w-8 h-8 bg-blue-500/10 rounded-lg flex items-center justify-center mb-3">
+              <div className="w-8 h-8 bg-[var(--color-primary-2)]/10 rounded-lg flex items-center justify-center mb-3">
                 <FaLock className="w-5 h-5" />
               </div>
               <h4 className="font-semibold text-white mb-2">Segurança</h4>
-              <ul className="text-sm text-gray-400 space-y-1">
+              <ul className="text-sm text-neutral-400 space-y-1">
                 <li>• Nunca exponha tokens em client-side</li>
                 <li>• Use HTTPS em todas as requisições</li>
                 <li>• Revogue tokens comprometidos</li>
@@ -279,7 +279,7 @@ export const conceptsSections = [
                 <FaSyncAlt className="w-5 h-5" />
               </div>
               <h4 className="font-semibold text-white mb-2">Idempotência</h4>
-              <ul className="text-sm text-gray-400 space-y-1">
+              <ul className="text-sm text-neutral-400 space-y-1">
                 <li>• Sempre use Idempotency-Key em POSTs</li>
                 <li>• UUIDv4 para chaves únicas</li>
                 <li>• Guarde as chaves para retentativas</li>
@@ -294,7 +294,7 @@ export const conceptsSections = [
                 <FaMobileAlt className="w-5 h-5" />
               </div>
               <h4 className="font-semibold text-white mb-2">Fluxo de Pagamento</h4>
-              <ul className="text-sm text-gray-400 space-y-1">
+              <ul className="text-sm text-neutral-400 space-y-1">
                 <li>• Só libere produto/serviço quando status = "paid"</li>
                 <li>• Use polling com backoff exponencial</li>
                 <li>• Guarde saleId para reconciliação</li>
@@ -307,7 +307,7 @@ export const conceptsSections = [
                 <FaBug className="w-5 h-5" />
               </div>
               <h4 className="font-semibold text-white mb-2">Debugging</h4>
-              <ul className="text-sm text-gray-400 space-y-1">
+              <ul className="text-sm text-neutral-400 space-y-1">
                 <li>• Logs das respostas raw dos provedores</li>
                 <li>• Monitoramento de status codes</li>
                 <li>• Alertas para erros 5xx</li>
@@ -317,45 +317,45 @@ export const conceptsSections = [
           </div>
         </div>
 
-        <div className="bg-blue-500/10 rounded-xl p-6 border border-blue-500/20">
-          <h4 className="font-semibold text-blue-400 mb-3"><FaExclamationTriangle className="inline-block w-5 h-5 mr-2" /> Checklist para Produção</h4>
+        <div className="bg-[var(--color-primary-2)]/10 rounded-xl p-6 border border-[var(--color-primary-2)]/20">
+          <h4 className="font-semibold text-[var(--color-primary-2)] mb-3"><FaExclamationTriangle className="inline-block w-5 h-5 mr-2" /> Checklist para Produção</h4>
           <div className="grid md:grid-cols-2 gap-4 text-sm">
             <div>
-              <ul className="text-blue-300 space-y-2">
+              <ul className="text-[var(--color-primary-2)]/90 space-y-2">
                 <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-[var(--color-primary-2)] rounded-full"></div>
                   <span>Tokens armazenados com segurança</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-[var(--color-primary-2)] rounded-full"></div>
                   <span>HTTPS em todas as requisições</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-[var(--color-primary-2)] rounded-full"></div>
                   <span>Idempotency-Key implementado</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-[var(--color-primary-2)] rounded-full"></div>
                   <span>Tratamento de erro completo</span>
                 </li>
               </ul>
             </div>
             <div>
-              <ul className="text-blue-300 space-y-2">
+              <ul className="text-[var(--color-primary-2)]/90 space-y-2">
                 <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-[var(--color-primary-2)] rounded-full"></div>
                   <span>Validação de status de pagamento</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-[var(--color-primary-2)] rounded-full"></div>
                   <span>Logs para auditoria</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-[var(--color-primary-2)] rounded-full"></div>
                   <span>Monitoramento de webhooks</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-[var(--color-primary-2)] rounded-full"></div>
                   <span>Plano de fallback</span>
                 </li>
               </ul>

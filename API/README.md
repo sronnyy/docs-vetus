@@ -1,6 +1,6 @@
-# SolutPag — Respostas das APIs Públicas (Documentação e Exemplos)
+# Vetuspay — Respostas das APIs Públicas (Documentação e Exemplos)
 
-Este diretório contém exemplos de respostas em JSON para os principais endpoints públicos da API SolutPag. Use estes arquivos como referência para mocks, testes de integração e entendimento do formato de dados.
+Este diretório contém exemplos de respostas em JSON para os principais endpoints públicos da API Vetuspay. Use estes arquivos como referência para mocks, testes de integração e entendimento do formato de dados.
 
 ## Estrutura dos Exemplos
 
@@ -79,7 +79,7 @@ Este diretório contém exemplos de respostas em JSON para os principais endpoin
 - Balance:
 ```
 curl -s -H "Authorization: Bearer sk_live_SEU_TOKEN_AQUI" \
-  https://api.solutpag.com/api/public/v1/balance
+  https://api.vetuspay.com/api/public/v1/balance
 ```
 
 - Criar PIX:
@@ -88,13 +88,13 @@ curl -s -X POST -H "Authorization: Bearer sk_live_SEU_TOKEN_AQUI" \
   -H "Content-Type: application/json" \
   -H "Idempotency-Key: 123e4567-e89b-12d3-a456-426614174000" \
   -d '{"amount_cents":5000, "comment":"Pagamento de serviço"}' \
-  https://api.solutpag.com/api/public/v1/transactions/pix
+  https://api.vetuspay.com/api/public/v1/transactions/pix
 ```
 
 - Status PIX:
 ```
 curl -s -H "Authorization: Bearer sk_live_SEU_TOKEN_AQUI" \
-  https://api.solutpag.com/api/public/v1/transactions/pix/sal_20250101_ABC123?sync=true
+  https://api.vetuspay.com/api/public/v1/transactions/pix/sal_20250101_ABC123?sync=true
 ```
 
 - Criar Saque:
@@ -103,13 +103,13 @@ curl -s -X POST -H "Authorization: Bearer sk_live_SEU_TOKEN_AQUI" \
   -H "Content-Type: application/json" \
   -H "Idempotency-Key: 123e4567-e89b-12d3-a456-426614174000" \
   -d '{"amount_cents":10000}' \
-  https://api.solutpag.com/api/public/v1/withdrawals
+  https://api.vetuspay.com/api/public/v1/withdrawals
 ```
 
 - Listar Saques:
 ```
 curl -s -H "Authorization: Bearer sk_live_SEU_TOKEN_AQUI" \
-  'https://api.solutpag.com/api/public/v1/withdrawals?limit=20'
+  'https://api.vetuspay.com/api/public/v1/withdrawals?limit=20'
 ```
 
 ## Observações

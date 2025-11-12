@@ -23,7 +23,7 @@ async function listWithdrawals(limit = 20, status = null) {
       params.append('status', status);
     }
 
-    const response = await fetch(\`https://api.solutpag.com/api/public/v1/withdrawals?\${params}\`, {
+    const response = await fetch(\`https://api.vetuspay.com/api/public/v1/withdrawals?\${params}\`, {
       method: 'GET',
       headers: {
         'Authorization': 'Bearer sk_live_SEU_TOKEN_AQUI',
@@ -72,7 +72,7 @@ def list_withdrawals(limit=20, status=None):
             params['status'] = status
             
         response = requests.get(
-            'https://api.solutpag.com/api/public/v1/withdrawals',
+            'https://api.vetuspay.com/api/public/v1/withdrawals',
             headers={
                 'Authorization': 'Bearer sk_live_SEU_TOKEN_AQUI',
                 'Accept': 'application/json'
@@ -107,7 +107,7 @@ public class WithdrawalsListExample {
   public static void main(String[] args) throws Exception {
     int limit = 10;
     String status = null; // por exemplo: "processing"
-    String base = "https://api.solutpag.com/api/public/v1/withdrawals?limit=" + limit;
+    String base = "https://api.vetuspay.com/api/public/v1/withdrawals?limit=" + limit;
     String url = status != null ? base + "&status=" + status : base;
 
     HttpClient client = HttpClient.newHttpClient();
@@ -160,7 +160,7 @@ export default function WithdrawalsViewer() {
       try {
         const qs = new URLSearchParams({ limit: '10' });
         if (status) qs.append('status', status);
-        const res = await fetch(\`https://api.solutpag.com/api/public/v1/withdrawals?\${qs.toString()}\`, {
+        const res = await fetch(\`https://api.vetuspay.com/api/public/v1/withdrawals?\${qs.toString()}\`, {
           headers: { 'Authorization': 'Bearer sk_live_SEU_TOKEN_AQUI', 'Accept': 'application/json' }
         });
         if (!res.ok) throw new Error('HTTP ' + res.status);

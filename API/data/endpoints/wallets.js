@@ -15,7 +15,7 @@ export const walletsSection = {
       code: `
 async function listWallets(limit = 20) {
   try {
-    const response = await fetch(\`https://api.solutpag.com/api/public/v1/wallets?limit=\${limit}\`, {
+    const response = await fetch(\`https://api.vetuspay.com/api/public/v1/wallets?limit=\${limit}\`, {
       method: 'GET',
       headers: {
         'Authorization': 'Bearer sk_live_SEU_TOKEN_AQUI',
@@ -59,7 +59,7 @@ def list_wallets(limit=20):
     """
     try:
         response = requests.get(
-            'https://api.solutpag.com/api/public/v1/wallets',
+            'https://api.vetuspay.com/api/public/v1/wallets',
             headers={
                 'Authorization': 'Bearer sk_live_SEU_TOKEN_AQUI',
                 'Accept': 'application/json'
@@ -95,7 +95,7 @@ public class WalletsExample {
     int limit = 50;
     HttpClient client = HttpClient.newHttpClient();
     HttpRequest request = HttpRequest.newBuilder()
-      .uri(URI.create("https://api.solutpag.com/api/public/v1/wallets?limit=" + limit))
+      .uri(URI.create("https://api.vetuspay.com/api/public/v1/wallets?limit=" + limit))
       .header("Authorization", "Bearer sk_live_SEU_TOKEN_AQUI")
       .header("Accept", "application/json")
       .GET()
@@ -139,7 +139,7 @@ export default function WalletsList() {
   useEffect(() => {
     const run = async () => {
       try {
-        const res = await fetch('https://api.solutpag.com/api/public/v1/wallets?limit=30', {
+        const res = await fetch('https://api.vetuspay.com/api/public/v1/wallets?limit=30', {
           headers: {
             'Authorization': 'Bearer sk_live_SEU_TOKEN_AQUI',
             'Accept': 'application/json'

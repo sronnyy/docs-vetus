@@ -27,11 +27,11 @@ export default function Footer() {
           <div className="flex items-center gap-3 group">
               <img 
                 src="/images/logo.png" 
-                alt="SolutPag" 
+                alt="Vetuspay" 
                 className="h-8 w-8"
               />
             <div className="flex flex-col">
-              <span className="text-[var(--color-text)] font-semibold text-lg">SolutPag API</span>
+              <span className="text-[var(--color-text)] font-semibold text-lg">Vetuspay API</span>
               <span className="text-[var(--color-muted)] text-sm">v2.0.0</span>
             </div>
           </div>
@@ -40,21 +40,21 @@ export default function Footer() {
           <div className="flex items-center gap-4">
             <a 
               href="#" 
-              className="h-10 w-10 rounded-full flex items-center justify-center text-[var(--color-muted)] hover:text-[var(--color-text)] transition-all hover:scale-110"
+              className="h-10 w-10 rounded-full flex items-center justify-center text-[var(--color-muted)] hover:text-[var(--color-primary-2)] transition-all hover:scale-110"
               aria-label="GitHub"
             >
               <FaGithub className="w-5 h-5" />
             </a>
             <a 
               href="#" 
-              className="h-10 w-10 rounded-full flex items-center justify-center text-[var(--color-muted)] hover:text-[var(--color-text)] transition-all hover:scale-110"
+              className="h-10 w-10 rounded-full flex items-center justify-center text-[var(--color-muted)] hover:text-[var(--color-primary-2)] transition-all hover:scale-110"
               aria-label="Twitter"
             >
               <FaTwitter className="w-5 h-5" />
             </a>
             <a 
               href="#" 
-              className="h-10 w-10 rounded-full flex items-center justify-center text-[var(--color-muted)] hover:text-[var(--color-text)] transition-all hover:scale-110"
+              className="h-10 w-10 rounded-full flex items-center justify-center text-[var(--color-muted)] hover:text-[var(--color-primary-2)] transition-all hover:scale-110"
               aria-label="Discord"
             >
               <FaDiscord className="w-5 h-5" />
@@ -68,11 +68,11 @@ export default function Footer() {
             <div key={link.label} className="group">
               <a 
                 href={link.href}
-                className="block p-4 rounded-xl bg-[var(--color-surface)] hover:bg-[var(--color-panel)] hover:border-[var(--color-primary)]/40 transition-all transform hover:-translate-y-1"
+                className="block p-4 rounded-xl bg-[var(--color-surface)] hover:bg-[var(--color-panel)] hover:border-[var(--color-primary-2)]/40 transition-all transform hover:-tranneutral-y-1"
               >
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="text-xl text-[var(--color-muted)]">{link.icon}</span>
-                  <span className="text-[var(--color-text)] font-semibold text-sm transition-colors">
+                  <span className="text-xl text-[var(--color-muted)] group-hover:text-[var(--color-primary-2)] transition-colors">{link.icon}</span>
+                  <span className="text-[var(--color-text)] font-semibold text-sm transition-colors group-hover:text-[var(--color-primary-2)]">
                     {link.label}
                   </span>
                 </div>
@@ -88,18 +88,18 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-4 pt-6">
           <div className="text-center lg:text-left">
             <p className="text-[var(--color-muted)] text-sm">
-              © 2024 SolutPag. Todos os direitos reservados.
+              © 2024 Vetuspay. Todos os direitos reservados.
             </p>
           </div>
           
           <div className="flex items-center gap-6 text-xs text-[var(--color-muted)]">
-            <a href="#" className="hover:text-[var(--color-primary)] transition-colors">
+            <a href="#" className="hover:text-[var(--color-primary-2)] transition-colors">
               Termos de Uso
             </a>
-            <a href="#" className="hover:text-[var(--color-primary)] transition-colors">
+            <a href="#" className="hover:text-[var(--color-primary-2)] transition-colors">
               Privacidade
             </a>
-            <a href="#" className="hover:text-[var(--color-primary)] transition-colors">
+            <a href="#" className="hover:text-[var(--color-primary-2)] transition-colors">
               Cookies
             </a>
           </div>

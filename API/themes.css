@@ -1,21 +1,35 @@
-/* SolutPag API Theme variables */
+/* Vetuspay API Theme variables - Dashboard Colors */
 
 .api-theme {
   --theme-transition: cubic-bezier(0.22, 1, 0.36, 1);
+  
+  /* Fontes */
+  --font-roboto: "Roboto", ui-sans-serif, system-ui, sans-serif;
+  --font-pop: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-inter: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-checkRegular: "checkRegular", ui-sans-serif, system-ui, sans-serif;
+
+  /* Cores do Dashboard */
+  --color-section: #f8fcff;
+  --color-offwhite: #f2f2f2;
+  --color-offblack: #4a4a4a;
+  --color-back: #ffffff;
+  --color-primary-2: #418c1f;
+  --color-secondary: #55b22a;
 }
 
 .api-theme.theme-dark {
-  --color-bg: #030712; /* gray-950 */
+  --color-bg: #030712; /* neutral-950 */
   --color-header: #030712;
   --color-sidebar: #02050e; /* darker */
-  --color-surface: #111827; /* gray-900 */
+  --color-surface: #111827; /* neutral-900 */
   --color-panel: #02050e;
   --color-menu: #030712;
   --color-code: #02050e;
-  --color-border: #1f2937; /* gray-800 */
-  --color-text: #f9fafb; /* gray-50 */
-  --color-muted: #9ca3af; /* gray-400 */
-  --color-primary: #3b82f6; /* blue-500 */
+  --color-border: #1f2937; /* neutral-800 */
+  --color-text: #f9fafb; /* neutral-50 */
+  --color-muted: #9ca3af; /* neutral-400 */
+  --color-primary: var(--color-primary-2); /* Usa primary-2 do Dashboard */
   --color-primary-contrast: #f9fafb;
 }
 
@@ -29,7 +43,7 @@
 
 /* Primary buttons */
 .api-theme .btn-primary { background: var(--color-primary); color: var(--color-primary-contrast); }
-.api-theme.theme-dark .btn-primary:hover { background: #2563eb; }
+.api-theme.theme-dark .btn-primary:hover { background: var(--color-secondary); }
 
 /* Generic text colors */
 .api-theme .text-base-strong { color: var(--color-text); }

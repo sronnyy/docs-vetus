@@ -15,7 +15,7 @@ export const pixStatusSection = {
       code: `
 async function checkPixStatus(saleId, sync = false) {
   try {
-    const url = \`https://api.solutpag.com/api/public/v1/transactions/pix/\${saleId}\${sync ? '?sync=true' : ''}\`;
+    const url = \`https://api.vetuspay.com/api/public/v1/transactions/pix/\${saleId}\${sync ? '?sync=true' : ''}\`;
     
     const response = await fetch(url, {
       method: 'GET',
@@ -64,7 +64,7 @@ def check_pix_status(sale_id, sync=False):
         params = {'sync': 'true'} if sync else {}
         
         response = requests.get(
-            f'https://api.solutpag.com/api/public/v1/transactions/pix/{sale_id}',
+            f'https://api.vetuspay.com/api/public/v1/transactions/pix/{sale_id}',
             headers={
                 'Authorization': 'Bearer sk_live_SEU_TOKEN_AQUI',
                 'Accept': 'application/json'
@@ -99,7 +99,7 @@ public class PixStatusExample {
   public static void main(String[] args) throws Exception {
     String saleId = "650f3b9a5a2c3d4e5f678901";
     boolean sync = true;
-    String url = "https://api.solutpag.com/api/public/v1/transactions/pix/" + saleId + (sync ? "?sync=true" : "");
+    String url = "https://api.vetuspay.com/api/public/v1/transactions/pix/" + saleId + (sync ? "?sync=true" : "");
 
     HttpClient client = HttpClient.newHttpClient();
     HttpRequest request = HttpRequest.newBuilder()
@@ -150,7 +150,7 @@ export default function PixStatusChecker() {
     setError(null);
     try {
       const res = await fetch(
-        \`https://api.solutpag.com/api/public/v1/transactions/pix/\${saleId}?sync=true\`,
+        \`https://api.vetuspay.com/api/public/v1/transactions/pix/\${saleId}?sync=true\`,
         { headers: { 'Authorization': 'Bearer sk_live_SEU_TOKEN_AQUI', 'Accept': 'application/json' } }
       );
       if (!res.ok) throw new Error('HTTP ' + res.status);

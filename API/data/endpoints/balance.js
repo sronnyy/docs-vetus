@@ -15,7 +15,7 @@ export const balanceSection = {
       code: `
 async function getBalance() {
   try {
-    const response = await fetch('https://api.solutpag.com/api/public/v1/balance?detail=true', {
+    const response = await fetch('https://api.vetuspay.com/api/public/v1/balance?detail=true', {
       method: 'GET',
       headers: {
         'Authorization': 'Bearer sk_live_SEU_TOKEN_AQUI',
@@ -53,7 +53,7 @@ import json
 def get_balance():
     try:
         response = requests.get(
-            'https://api.solutpag.com/api/public/v1/balance',
+            'https://api.vetuspay.com/api/public/v1/balance',
             headers={
                 'Authorization': 'Bearer sk_live_SEU_TOKEN_AQUI',
                 'Accept': 'application/json'
@@ -88,7 +88,7 @@ public class BalanceExample {
     public static void main(String[] args) throws Exception {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-            .uri(URI.create("https://api.solutpag.com/api/public/v1/balance?detail=true"))
+            .uri(URI.create("https://api.vetuspay.com/api/public/v1/balance?detail=true"))
             .header("Authorization", "Bearer sk_live_SEU_TOKEN_AQUI")
             .header("Accept", "application/json")
             .GET()
@@ -133,7 +133,7 @@ export default function BalanceViewer() {
   useEffect(() => {
     const run = async () => {
       try {
-        const res = await fetch('https://api.solutpag.com/api/public/v1/balance?detail=true', {
+        const res = await fetch('https://api.vetuspay.com/api/public/v1/balance?detail=true', {
           headers: {
             'Authorization': 'Bearer sk_live_SEU_TOKEN_AQUI',
             'Accept': 'application/json'

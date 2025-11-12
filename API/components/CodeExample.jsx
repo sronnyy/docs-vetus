@@ -119,7 +119,7 @@ export default function CodeExample({
               {filename}
             </span>
           )}
-          <span className="ml-2 rounded-full bg-blue-500/15 px-2 py-0.5 text-[11px] text-blue-300 border border-blue-500/20">
+          <span className="ml-2 rounded-full bg-[var(--color-primary-2)]/15 px-2 py-0.5 text-[11px] text-[var(--color-primary-2)] border border-[var(--color-primary-2)]/20">
             {langBadge}
           </span>
         </div>
