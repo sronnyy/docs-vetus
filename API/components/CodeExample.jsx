@@ -9,6 +9,7 @@ export default function CodeExample({
   filename,
   theme = "nightOwl",
   description,
+  request,
   response,
   responses,
 }) {
@@ -16,6 +17,7 @@ export default function CodeExample({
   const [fullscreen, setFullscreen] = useState(false);
   const [activeResp, setActiveResp] = useState(0);
   const [respCopied, setRespCopied] = useState(false);
+  const [reqCopied, setReqCopied] = useState(false);
   const preRef = useRef(null);
 
   const prismLang = useMemo(() => {
@@ -92,6 +94,28 @@ export default function CodeExample({
     const t = setTimeout(() => setRespCopied(false), 1200);
     return () => clearTimeout(t);
   }, [respCopied]);
+
+  useEffect(() => {
+    if (!reqCopied) return;
+    const t = setTimeout(() => setReqCopied(false), 1200);
+    return () => clearTimeout(t);
+  }, [reqCopied]);
+
+  const doCopyRequest = async () => {
+    const text = String(request || "").trim();
+    try {
+      await navigator.clipboard.writeText(text);
+      setReqCopied(true);
+    } catch {
+      const el = document.createElement("textarea");
+      el.value = text;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand("copy");
+      document.body.removeChild(el);
+      setReqCopied(true);
+    }
+  };
 
   const langBadge = useMemo(() => {
     const l = String(language || "").toLowerCase();
@@ -203,6 +227,50 @@ export default function CodeExample({
       {!fullscreen && (
         <Shell>{renderCodeBlock(false)}</Shell>
       )}
+
+      {/* Request (exemplo) - apenas para métodos POST/PUT/PATCH */}
+      {request ? (
+        <div className="mt-4 relative w-full overflow-hidden rounded-2xl border border-white/10 bg-[#0b1220]">
+          <div className="flex items-center justify-between px-4 py-2 border-b border-white/10 bg-white/5">
+            <div className="flex items-center gap-2 text-xs text-white/80">
+              <span className="inline-flex h-2.5 w-2.5 rounded-full bg-red-500/80" />
+              <span className="inline-flex h-2.5 w-2.5 rounded-full bg-yellow-500/80" />
+              <span className="inline-flex h-2.5 w-2.5 rounded-full bg-green-500/80" />
+              <span className="ml-1 font-medium">Request (exemplo)</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <button
+                onClick={doCopyRequest}
+                className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs text-white/80 hover:bg-white/10"
+                aria-label="Copiar request"
+                title="Copiar request"
+              >
+                {reqCopied ? <FiCheck className="w-4 h-4 text-emerald-400" /> : <FiCopy className="w-4 h-4" />}
+              </button>
+            </div>
+          </div>
+          <Highlight theme={activeTheme} code={String(request || "").trim()} language={"json"}>
+            {({ className, style, tokens, getLineProps, getTokenProps }) => (
+              <pre
+                className={`${className} m-0 max-h-[520px] overflow-auto p-4 text-[13px] leading-relaxed`}
+                style={style}
+              >
+                {tokens.map((line, i) => {
+                  const isLastEmpty = i === tokens.length - 1 && line.length === 1 && line[0].content === "";
+                  if (isLastEmpty) return null;
+                  return (
+                    <div key={i} {...getLineProps({ line })}>
+                      {line.map((token, key) => (
+                        <span key={key} {...getTokenProps({ token })} />
+                      ))}
+                    </div>
+                  );
+                })}
+              </pre>
+            )}
+          </Highlight>
+        </div>
+      ) : null}
 
       {/* Respostas (exemplo) */}
       {(Array.isArray(responses) && responses.length > 0) || response ? (
