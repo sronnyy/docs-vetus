@@ -4,8 +4,8 @@ export const pixStatusSection = {
   id: 'pix-status',
   title: 'Consultar Status PIX',
   category: 'endpoints',
-  description: 'Consulta o status e detalhes de uma transação PIX específica. Use sync=true para sincronização em tempo real.',
-  endpoint: '/transactions/pix/{saleId}',
+  description: 'Consulta o status e detalhes de uma transação PIX específica. Use sync=true para forçar sincronização em tempo real com o provedor. Retorna informações completas incluindo QR Code, taxas e dados raw do provedor.',
+  endpoint: '/transactions/pix/<sale_id>',
   method: 'GET',
   examples: [
     {
@@ -14,6 +14,7 @@ export const pixStatusSection = {
       description: 'Consulta com sincronização em tempo real, tratamento de erros e exibição da resposta JSON formatada',
       code: `
 async function checkPixStatus(saleId, sync = false) {
+  // saleId: ID da transação (ex: "69263ae883d8d0025e670125")
   try {
     const url = \`https://api.vetuspay.com/api/public/v1/transactions/pix/\${saleId}\${sync ? '?sync=true' : ''}\`;
     
@@ -39,8 +40,9 @@ async function checkPixStatus(saleId, sync = false) {
   }
 }
 
-// Exemplo: consultar status com sincronização
-checkPixStatus('650f3b9a5a2c3d4e5f678901', true);
+// Exemplos de uso:
+checkPixStatus('69263ae883d8d0025e670125'); // Status atual (cached)
+checkPixStatus('69263ae883d8d0025e670125', true); // Sincronizar com provedor
       `,
       response: JSON.stringify(pixStatusPending, null, 2)
     },
@@ -57,8 +59,8 @@ def check_pix_status(sale_id, sync=False):
     Consulta status de uma transação PIX
     
     Args:
-        sale_id (str): ID da transação
-        sync (bool): Se True, sincroniza com provedor em tempo real
+        sale_id (str): ID da transação (ex: "69263ae883d8d0025e670125")
+        sync (bool): Se True, sincroniza com provedor em tempo real (?sync=true)
     \"\"\"
     try:
         params = {'sync': 'true'} if sync else {}
@@ -80,8 +82,9 @@ def check_pix_status(sale_id, sync=False):
         print(f"Erro ao consultar status: {e}")
         raise Exception(f"Erro ao consultar status: {e}")
 
-# Exemplo de uso:
-check_pix_status("650f3b9a5a2c3d4e5f678901", sync=True)
+# Exemplos de uso:
+check_pix_status("69263ae883d8d0025e670125")  # Status atual
+check_pix_status("69263ae883d8d0025e670125", sync=True)  # Sincronizar
       `,
       response: JSON.stringify(pixStatusPending, null, 2)
     },
@@ -97,8 +100,8 @@ import java.net.http.HttpResponse;
 
 public class PixStatusExample {
   public static void main(String[] args) throws Exception {
-    String saleId = "650f3b9a5a2c3d4e5f678901";
-    boolean sync = true;
+    String saleId = "69263ae883d8d0025e670125"; // ID da transação (<sale_id>)
+    boolean sync = true; // true para sincronizar com provedor (?sync=true)
     String url = "https://api.vetuspay.com/api/public/v1/transactions/pix/" + saleId + (sync ? "?sync=true" : "");
 
     HttpClient client = HttpClient.newHttpClient();
@@ -140,7 +143,7 @@ public class PixStatusExample {
 import { useState } from 'react';
 
 export default function PixStatusChecker() {
-  const [saleId, setSaleId] = useState('650f3b9a5a2c3d4e5f678901');
+  const [saleId, setSaleId] = useState('69263ae883d8d0025e670125');
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);

@@ -5,7 +5,7 @@ export const withdrawalsDetailSection = {
   title: 'Detalhes do Saque',
   category: 'endpoints',
   description: 'Obtém informações detalhadas de um saque específico, incluindo destino e transação associada.',
-  endpoint: '/withdrawals/{wid}',
+  endpoint: '/withdrawals/<wid>',
   method: 'GET',
   examples: [
     {
@@ -14,6 +14,7 @@ export const withdrawalsDetailSection = {
       description: 'Consulta detalhada de um saque específico, exibe JSON formatado e trata erro 404',
       code: `
 async function getWithdrawalDetails(wid) {
+  // wid: Withdrawal ID no formato WID-YYYYMMDD-XXXXXX (ex: "WID-20251125-8EE83F")
   try {
     const response = await fetch(\`https://api.vetuspay.com/api/public/v1/withdrawals/\${wid}\`, {
       method: 'GET',
@@ -41,7 +42,7 @@ async function getWithdrawalDetails(wid) {
 }
 
 // Exemplo: consultar detalhes de um saque
-getWithdrawalDetails('WID-20251022-1A2B3C');
+getWithdrawalDetails('WID-20251125-8EE83F');
       `,
       response: JSON.stringify(withdrawalDetails, null, 2)
     },
@@ -58,7 +59,7 @@ def get_withdrawal_details(wid):
     Obtém detalhes de um saque específico
     
     Args:
-        wid (str): ID do saque
+        wid (str): ID do saque no formato WID-YYYYMMDD-XXXXXX (ex: "WID-20251125-8EE83F")
     
     Returns:
         dict: Detalhes do saque
@@ -85,7 +86,7 @@ def get_withdrawal_details(wid):
         raise Exception(f"Erro ao consultar saque: {e}")
 
 # Exemplo de uso:
-get_withdrawal_details("WID-20251022-1A2B3C")
+get_withdrawal_details("WID-20251125-8EE83F")
       `,
       response: JSON.stringify(withdrawalDetails, null, 2)
     },
@@ -101,7 +102,7 @@ import java.net.http.HttpResponse;
 
 public class WithdrawalDetailExample {
   public static void main(String[] args) throws Exception {
-    String wid = "WID-20251022-1A2B3C";
+    String wid = "WID-20251125-8EE83F"; // Withdrawal ID no formato WID-YYYYMMDD-XXXXXX
     HttpClient client = HttpClient.newHttpClient();
     HttpRequest request = HttpRequest.newBuilder()
       .uri(URI.create("https://api.vetuspay.com/api/public/v1/withdrawals/" + wid))
@@ -143,7 +144,7 @@ public class WithdrawalDetailExample {
       code: `
 import { useEffect, useState } from 'react';
 
-export default function WithdrawalDetailsViewer({ wid = 'WID-20251022-1A2B3C' }) {
+export default function WithdrawalDetailsViewer({ wid = 'WID-20251125-8EE83F' }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

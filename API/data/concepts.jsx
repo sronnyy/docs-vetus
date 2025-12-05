@@ -32,8 +32,8 @@ export const conceptsSections = [
             },
             {
               scope: 'payments:read',
-              description: 'Consultar status de transações',
-              endpoints: ['GET /transactions/pix/{saleId}'],
+              description: 'Consultar status e listar transações',
+              endpoints: ['GET /transactions/pix', 'GET /transactions/pix/<sale_id>'],
               color: 'purple'
             },
             {
@@ -45,7 +45,7 @@ export const conceptsSections = [
             {
               scope: 'withdrawals:read',
               description: 'Consultar saques realizados',
-              endpoints: ['GET /withdrawals', 'GET /withdrawals/{wid}'],
+              endpoints: ['GET /withdrawals', 'GET /withdrawals/<wid>'],
               color: 'red'
             }
           ].map((item, index) => (

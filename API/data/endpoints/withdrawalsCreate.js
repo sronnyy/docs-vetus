@@ -1,10 +1,11 @@
-import withdrawalProcessing from '../../responses/withdrawals/withdrawal_processing_202.json';
+import withdrawalApproved from '../../responses/withdrawals/withdrawal_approved_200.json';
+import withdrawalCreateRequest from '../../responses/withdrawals/withdrawal_create_request.json';
 
 export const withdrawalsCreateSection = {
   id: 'withdrawals-create',
   title: 'Criar Saque',
   category: 'endpoints',
-  description: 'Solicita um saque para o CPF cadastrado do usuário. O valor será transferido via PIX automaticamente.',
+  description: 'Solicita um saque para o CPF cadastrado do usuário. O valor será transferido via PIX automaticamente. O valor deve estar entre MIN_WITHDRAWAL_CENTS e MAX_WITHDRAWAL_CENTS. Use Idempotency Key para evitar saques duplicados.',
   endpoint: '/withdrawals',
   method: 'POST',
   examples: [
@@ -13,30 +14,46 @@ export const withdrawalsCreateSection = {
       title: 'Node.js',
       description: 'Solicitação de saque com validação, tratamento de erros e exibição da resposta JSON formatada',
       code: `
+// Base URL da API
+const API_BASE_URL = 'https://api.vetuspay.com/api/public/v1';
+const API_TOKEN = 'sk_live_SEU_TOKEN_AQUI'; // Substitua pelo seu token
+
 async function requestWithdrawal(amountCents) {
+  // Monta o payload da requisição
+  // IMPORTANTE: amount_cents aceita snake_case ou camelCase (amountCents)
+  // O valor deve estar entre MIN_WITHDRAWAL_CENTS e MAX_WITHDRAWAL_CENTS
   const payload = {
-    amount_cents: amountCents
+    amount_cents: amountCents  // Valor em centavos (obrigatório)
+    // Exemplo: R$ 100,00 = 10000 centavos
+    // amountCents: amountCents  // Alternativa em camelCase
   };
 
+  // Headers obrigatórios para todas as requisições
   const headers = {
-    'Authorization': 'Bearer sk_live_SEU_TOKEN_AQUI',
+    'Authorization': \`Bearer \${API_TOKEN}\`,
     'Content-Type': 'application/json',
     'Accept': 'application/json',
-    'Idempotency-Key': '123e4567-e89b-12d3-a456-426614174000'
+    // Idempotency-Key: use para evitar saques duplicados (recomendado)
+    'Idempotency-Key': crypto.randomUUID() // Gera UUID v4
   };
 
   try {
-    const response = await fetch(
-      'https://api.vetuspay.com/api/public/v1/withdrawals',
-      {
-        method: 'POST',
-        headers: headers,
-        body: JSON.stringify(payload)
-      }
-    );
+    const response = await fetch(\`\${API_BASE_URL}/withdrawals\`, {
+      method: 'POST',
+      headers: headers,
+      body: JSON.stringify(payload)
+    });
+
+    // Verifica se a requisição foi bem-sucedida
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(\`Erro HTTP \${response.status}: \${JSON.stringify(errorData)}\`);
+    }
+
     const result = await response.json();
-    // Exibe a resposta JSON formatada, linha por linha
-    console.log(JSON.stringify(result, null, 2));
+    // result contém: wid, status, amount_cents, fee_cents, net_amount_cents,
+    //                balances (current/after), destination, transaction, etc.
+    console.log('Saque solicitado:', JSON.stringify(result, null, 2));
     return result;
   } catch (error) {
     console.error('Erro ao solicitar saque:', error);
@@ -45,9 +62,11 @@ async function requestWithdrawal(amountCents) {
 }
 
 // Exemplo de uso:
+// Solicitar saque de R$ 100,00
 requestWithdrawal(10000);
       `,
-      response: JSON.stringify(withdrawalProcessing, null, 2)
+      request: JSON.stringify(withdrawalCreateRequest, null, 2),
+      response: JSON.stringify(withdrawalApproved, null, 2)
     },
     {
       language: 'python',
@@ -58,47 +77,68 @@ import requests
 import uuid
 import json
 
+# Configuração da API
+API_BASE_URL = 'https://api.vetuspay.com/api/public/v1'
+API_TOKEN = 'sk_live_SEU_TOKEN_AQUI'  # Substitua pelo seu token
+
 def request_withdrawal(amount_cents):
     """
-    Solicita um saque para o CPF cadastrado
+    Solicita um saque para o CPF cadastrado do usuário
     
     Args:
-        amount_cents (int): Valor em centavos para saque
+        amount_cents (int): Valor em centavos para saque (obrigatório)
+                          Exemplo: R$ 100,00 = 10000
+                          Deve estar entre MIN_WITHDRAWAL_CENTS e MAX_WITHDRAWAL_CENTS
     
     Returns:
-        dict: Dados do saque solicitado
+        dict: Dados do saque solicitado com wid, status, balances, destination, etc.
     """
+    # Monta o payload da requisição
+    # IMPORTANTE: aceita amount_cents (snake_case) ou amountCents (camelCase)
     payload = {
-        "amount_cents": amount_cents
+        "amount_cents": amount_cents  # Valor obrigatório em centavos
+        # "amountCents": amount_cents  # Alternativa em camelCase
     }
     
+    # Headers obrigatórios para todas as requisições
     headers = {
-        'Authorization': 'Bearer sk_live_SEU_TOKEN_AQUI',
+        'Authorization': f'Bearer {API_TOKEN}',
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'Idempotency-Key': str(uuid.uuid4())
+        # Idempotency-Key: use para evitar saques duplicados (recomendado)
+        'Idempotency-Key': str(uuid.uuid4())  # Gera UUID v4
     }
     
     try:
         response = requests.post(
-            'https://api.vetuspay.com/api/public/v1/withdrawals',
+            f'{API_BASE_URL}/withdrawals',
             json=payload,
             headers=headers,
-            timeout=60
+            timeout=60  # Timeout maior pois saques podem demorar
         )
+        
+        # Verifica erros HTTP
         response.raise_for_status()
+        
         data = response.json()
-        # Exibe a resposta JSON formatada, linha por linha
+        # data contém: wid, status, amount_cents, fee_cents, net_amount_cents,
+        #              balances (current/after), destination, transaction, etc.
         print(json.dumps(data, indent=2, ensure_ascii=False))
         return data
+    except requests.exceptions.HTTPError as e:
+        error_data = e.response.json() if e.response else {}
+        print(f"Erro HTTP {e.response.status_code}: {error_data}")
+        raise
     except requests.exceptions.RequestException as e:
-        print(f"Erro no saque: {e}")
-        raise Exception(f"Erro no saque: {e}")
+        print(f"Erro na requisição: {e}")
+        raise
 
 # Exemplo de uso:
+# Solicitar saque de R$ 100,00
 request_withdrawal(10000)
       `,
-      response: JSON.stringify(withdrawalProcessing, null, 2)
+      request: JSON.stringify(withdrawalCreateRequest, null, 2),
+      response: JSON.stringify(withdrawalApproved, null, 2)
     },
     {
       language: 'java',
@@ -146,7 +186,8 @@ public class WithdrawalCreateExample {
   }
 }
       `,
-      response: JSON.stringify(withdrawalProcessing, null, 2)
+      request: JSON.stringify(withdrawalCreateRequest, null, 2),
+      response: JSON.stringify(withdrawalApproved, null, 2)
     },
     {
       language: 'react',
@@ -201,7 +242,8 @@ export default function WithdrawalForm() {
   );
 }
       `,
-      response: JSON.stringify(withdrawalProcessing, null, 2)
+      request: JSON.stringify(withdrawalCreateRequest, null, 2),
+      response: JSON.stringify(withdrawalApproved, null, 2)
     }
   ]
 };

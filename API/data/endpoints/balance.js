@@ -4,7 +4,7 @@ export const balanceSection = {
   id: 'balance',
   title: 'Consultar Saldo',
   category: 'endpoints',
-  description: 'Retorna os saldos disponíveis do usuário em tempo real, incluindo valores bloqueados e totais por moeda.',
+  description: 'Retorna os saldos disponíveis do usuário em tempo real, incluindo valores bloqueados e totais por moeda. Permite filtrar por moedas específicas e incluir detalhes das wallets.',
   endpoint: '/balance',
   method: 'GET',
   examples: [
@@ -13,9 +13,21 @@ export const balanceSection = {
       title: 'Node.js',
       description: 'Exemplo completo com tratamento de erros e exibição da resposta JSON formatada',
       code: `
-async function getBalance() {
+async function getBalance(currencies = null, includeDetail = false) {
   try {
-    const response = await fetch('https://api.vetuspay.com/api/public/v1/balance?detail=true', {
+    const params = new URLSearchParams();
+    
+    if (currencies && Array.isArray(currencies)) {
+      currencies.forEach(currency => params.append('currency', currency));
+    }
+    
+    if (includeDetail) {
+      params.append('detail', 'true');
+    }
+
+    const url = \`https://api.vetuspay.com/api/public/v1/balance\${params.toString() ? '?' + params.toString() : ''}\`;
+    
+    const response = await fetch(url, {
       method: 'GET',
       headers: {
         'Authorization': 'Bearer sk_live_SEU_TOKEN_AQUI',
@@ -23,11 +35,11 @@ async function getBalance() {
       }
     });
 
-    if (!response.ok) {  
-      throw new Error(\`HTTP error! status: \${response.status}\`);  
-    }  
+    if (!response.ok) {
+      throw new Error(\`HTTP error! status: \${response.status}\`);
+    }
 
-    const data = await response.json();  
+    const data = await response.json();
     // Exibe a resposta JSON formatada, linha por linha
     console.log(JSON.stringify(data, null, 2));
     return data;
@@ -37,8 +49,10 @@ async function getBalance() {
   }
 }
 
-// Chamada da função de exemplo
-getBalance();
+// Exemplos de uso:
+getBalance(); // Saldo completo
+getBalance(['BRL', 'USDT']); // Filtrar por moedas específicas
+getBalance(null, true); // Com detalhes das wallets
       `,
       response: JSON.stringify(balanceResponse, null, 2)
     },
@@ -50,15 +64,30 @@ getBalance();
 import requests
 import json
 
-def get_balance():
+def get_balance(currencies=None, include_detail=False):
+    """
+    Consulta saldo do usuário
+    
+    Args:
+        currencies (list): Lista de moedas para filtrar (ex: ['BRL', 'USDT'])
+        include_detail (bool): Incluir detalhes das wallets
+    """
     try:
+        params = {}
+        
+        if currencies:
+            params['currency'] = currencies  # requests aceita lista
+        
+        if include_detail:
+            params['detail'] = 'true'
+        
         response = requests.get(
             'https://api.vetuspay.com/api/public/v1/balance',
             headers={
                 'Authorization': 'Bearer sk_live_SEU_TOKEN_AQUI',
                 'Accept': 'application/json'
             },
-            params={'detail': 'true'}
+            params=params
         )
         response.raise_for_status()
         data = response.json()
@@ -69,8 +98,10 @@ def get_balance():
         print(f"Erro na requisição: {e}")
         raise Exception(f"Erro na requisição: {e}")
 
-# Chamada da função de exemplo
-get_balance()
+# Exemplos de uso:
+get_balance()  # Saldo completo
+get_balance(['BRL', 'USDT'])  # Filtrar por moedas
+get_balance(include_detail=True)  # Com detalhes
       `,
       response: JSON.stringify(balanceResponse, null, 2)
     },
@@ -86,9 +117,13 @@ import java.net.http.HttpResponse;
 
 public class BalanceExample {
     public static void main(String[] args) throws Exception {
+        // Exemplo com filtro de moedas e detalhes
+        String url = "https://api.vetuspay.com/api/public/v1/balance?currency=BRL&currency=USDT&detail=true";
+        // Para saldo simples: "https://api.vetuspay.com/api/public/v1/balance"
+        
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-            .uri(URI.create("https://api.vetuspay.com/api/public/v1/balance?detail=true"))
+            .uri(URI.create(url))
             .header("Authorization", "Bearer sk_live_SEU_TOKEN_AQUI")
             .header("Accept", "application/json")
             .GET()
@@ -133,7 +168,8 @@ export default function BalanceViewer() {
   useEffect(() => {
     const run = async () => {
       try {
-        const res = await fetch('https://api.vetuspay.com/api/public/v1/balance?detail=true', {
+        // Pode adicionar query params: ?currency=BRL&currency=USDT&detail=true
+        const res = await fetch('https://api.vetuspay.com/api/public/v1/balance', {
           headers: {
             'Authorization': 'Bearer sk_live_SEU_TOKEN_AQUI',
             'Accept': 'application/json'
