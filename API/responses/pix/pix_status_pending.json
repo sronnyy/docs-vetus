@@ -1,9 +1,49 @@
 {
-  "sale_id": "sal_20250101_ABC123",
-  "status": "pending",
-  "amount_cents": 5000,
-  "currency": "BRL",
-  "created_at": "2025-01-01T12:20:00Z",
-  "last_sync_at": "2025-01-01T12:25:00Z",
-  "provider_status": "AWAITING_PAYMENT"
+  "amountCents": 500,
+  "brCode": "00020101021226810014br.gov.bcb.pix2559qr.woovi.com/qr/v2/cob/6bda0c48-3690-4011-ba22-af6a92dbedfd52040000530398654045.005802BR5916VETUSPAY_IP_LTDA6009Sao_Paulo62290525bac107b7eab34c978b5d4c6b96304D613",
+  "expiresAt": "2025-11-25T23:30:28.285000Z",
+  "feeCents": 200,
+  "id": "69263ae883d8d0025e670125",
+  "netCents": 300,
+  "qrCodeUrl": "https://api.woovi.com/openpix/charge/brcode/image/5b04968d-e45a-48c8-9c48-298cd6f675f9.png",
+  "raw": {
+    "charge": {
+      "additionalInfo": [],
+      "brCode": "00020101021226810014br.gov.bcb.pix2559qr.woovi.com/qr/v2/cob/6bda0c48-3690-4011-ba22-af6a92dbedfd52040000530398654045.005802BR5916VETUSPAY_IP_LTDA6009Sao_Paulo62290525bac107b7eab34c978b5d4c6b96304D613",
+      "comment": "Test 1",
+      "correlationID": "69148959e9f08df836ff9aa2-1764113128031-b7eb3fa97144",
+      "createdAt": "2025-11-25T23:25:28.325Z",
+      "discount": 0,
+      "ensureSameTaxID": false,
+      "expiresDate": "2025-11-25T23:30:28.285Z",
+      "expiresIn": 300,
+      "fee": 85,
+      "globalID": "Q2hhcmdlOjY5MjYzYWU4MTVhOTdiZmE4NDVmMjU0YQ==",
+      "identifier": "bac107b7eab34c978b5d4c6b9505ffcb",
+      "paymentLinkID": "5b04968d-e45a-48c8-9c48-298cd6f675f9",
+      "paymentLinkUrl": "https://woovi.com/pay/5b04968d-e45a-48c8-9c48-298cd6f675f9",
+      "paymentMethods": {
+        "pix": {
+          "brCode": "00020101021226810014br.gov.bcb.pix2559qr.woovi.com/qr/v2/cob/6bda0c48-3690-4011-ba22-af6a92dbedfd52040000530398654045.005802BR5916VETUSPAY_IP_LTDA6009Sao_Paulo62290525bac107b7eab34c978b5d4c6b96304D613",
+          "fee": 85,
+          "identifier": "bac107b7eab34c978b5d4c6b9505ffcb",
+          "method": "PIX_COB",
+          "qrCodeImage": "https://api.woovi.com/openpix/charge/brcode/image/5b04968d-e45a-48c8-9c48-298cd6f675f9.png",
+          "status": "ACTIVE",
+          "transactionID": "bac107b7eab34c978b5d4c6b9505ffcb",
+          "txId": "bac107b7eab34c978b5d4c6b9505ffcb",
+          "value": 500
+        }
+      },
+      "pixKey": "8a5fb48d-4999-4fbc-b956-446e13f19090",
+      "qrCodeImage": "https://api.woovi.com/openpix/charge/brcode/image/5b04968d-e45a-48c8-9c48-298cd6f675f9.png",
+      "status": "ACTIVE",
+      "transactionID": "bac107b7eab34c978b5d4c6b9505ffcb",
+      "type": "DYNAMIC",
+      "updatedAt": "2025-11-25T23:25:28.325Z",
+      "value": 500,
+      "valueWithDiscount": 500
+    }
+  },
+  "status": "pending"
 }

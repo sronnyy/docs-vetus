@@ -1,8 +1,10 @@
-[
-  {
-    "wallet_id": "wal_456",
-    "available_cents": 100000,
-    "locked_cents": 5000,
-    "created_at": "2023-01-01T00:00:00Z"
-  }
-]
+{
+  "items": [
+    {
+      "available_cents": 0,
+      "created_at": "2025-11-12T13:19:21.090000Z",
+      "locked_cents": 0,
+      "wallet_id": "691489598c48b81f7087ed83"
+    }
+  ]
+}

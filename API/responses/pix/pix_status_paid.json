@@ -1,10 +1,19 @@
 {
-  "sale_id": "sal_20250101_ABC123",
+  "amountCents": 500,
+  "brCode": "00020101021226810014br.gov.bcb.pix2559qr.woovi.com/qr/v2/cob/6bda0c48-3690-4011-ba22-af6a92dbedfd52040000530398654045.005802BR5916VETUSPAY_IP_LTDA6009Sao_Paulo62290525bac107b7eab34c978b5d4c6b96304D613",
+  "expiresAt": null,
+  "feeCents": 200,
+  "id": "69263ae883d8d0025e670125",
+  "netCents": 300,
+  "qrCodeUrl": "https://api.woovi.com/openpix/charge/brcode/image/5b04968d-e45a-48c8-9c48-298cd6f675f9.png",
   "status": "paid",
-  "amount_cents": 5000,
-  "currency": "BRL",
-  "paid_at": "2025-01-01T12:27:43Z",
-  "end_to_end_id": "E1234567820250101122743000000000",
-  "transaction_id": "tx_9f8e7d6c5b4a",
-  "last_sync_at": "2025-01-01T12:28:00Z"
+  "paidAt": "2025-11-25T23:35:00.000Z",
+  "endToEndId": "E1234567820251125233500000000000",
+  "transactionId": "tx_9f8e7d6c5b4a",
+  "raw": {
+    "charge": {
+      "status": "COMPLETED",
+      "value": 500
+    }
+  }
 }

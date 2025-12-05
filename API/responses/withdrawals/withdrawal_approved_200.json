@@ -1,17 +1,86 @@
 {
-  "wid": "WID-20250101-1A2B3C",
-  "status": "approved",
-  "amount_cents": 10000,
-  "fee_cents": 0,
-  "currency": "BRL",
-  "method": "pix",
-  "destination": {
-    "type": "cpf",
-    "value_masked": "***.***.***-**"
+  "amount_cents": 600,
+  "balances": {
+    "after": {
+      "BRL": {
+        "available_cents": 0,
+        "locked_cents": 0,
+        "total_cents": 0
+      }
+    },
+    "current": {
+      "BRL": {
+        "available_cents": 600,
+        "locked_cents": 0,
+        "total_cents": 600
+      }
+    }
   },
-  "processed_at": "2025-01-01T13:05:12Z",
-  "created_at": "2025-01-01T13:00:00Z",
-  "links": {
-    "self": "/withdrawals/WID-20250101-1A2B3C"
-  }
+  "destination": {
+    "account": "10712869",
+    "bank": "NU PAGAMENTOS - IP",
+    "branch": "1",
+    "name": "Victor Hugo Bernardo Ferreira Damasceno",
+    "pixKey": "17927620703",
+    "taxIDMasked": "179.***.***-03"
+  },
+  "fee_cents": 500,
+  "net_amount_cents": 100,
+  "ok": true,
+  "status": "approved",
+  "total_debit_cents": 600,
+  "transaction": {
+    "creditParty": {
+      "account": {
+        "account": "10712869",
+        "accountType": "TRAN",
+        "branch": "1"
+      },
+      "holder": {
+        "name": "Victor Hugo Bernardo Ferreira Damasceno",
+        "nameFriendly": "Victor Hugo Bernardo Ferreira Damasceno",
+        "taxID": {
+          "taxID": "17927620703",
+          "type": "BR:CPF"
+        }
+      },
+      "pixKey": {
+        "pixKey": "17927620703",
+        "type": "CPF"
+      },
+      "psp": {
+        "id": "18236120",
+        "name": "NU PAGAMENTOS - IP"
+      }
+    },
+    "debitParty": {
+      "account": {
+        "account": "00000000000001239430",
+        "accountType": "TRAN",
+        "branch": "0001"
+      },
+      "holder": {
+        "name": "VETUSPAY IP LTDA",
+        "nameFriendly": "VETUSPAY IP LTDA",
+        "taxID": {
+          "taxID": "62569931000162",
+          "type": "BR:CNPJ"
+        }
+      },
+      "psp": {
+        "code": "54811417",
+        "id": "54811417",
+        "name": "WOOVI IP LTDA"
+      }
+    },
+    "endToEndId": "E548114172025112522574SdZdXgBBF2",
+    "time": "2025-11-25T22:57:52.080Z",
+    "value": 100
+  },
+  "transactionId": "E548114172025112522574SdZdXgBBF2",
+  "wallet": {
+    "available_cents": 0,
+    "locked_cents": 0
+  },
+  "wid": "WID-20251125-8EE83F"
 }

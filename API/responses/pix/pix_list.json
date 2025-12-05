@@ -1,0 +1,50 @@
+{
+  "count": 8,
+  "items": [
+    {
+      "amountCents": 500,
+      "chargeId": "5483db2340e6496fbf38564ff4e2ab8b",
+      "createdAt": "2025-11-25T23:19:13.458000Z",
+      "expiresAt": "2025-11-25T23:24:13.501000Z",
+      "feeCents": 200,
+      "id": "6926397183d8d0025e670124",
+      "netCents": 300,
+      "status": "pending",
+      "updatedAt": "2025-11-25T23:19:13.458000Z"
+    },
+    {
+      "amountCents": 500,
+      "chargeId": "907ba5795ce34aa59146a3bd0c187415",
+      "createdAt": "2025-11-25T22:35:55.068000Z",
+      "expiresAt": "2025-11-25T22:40:55.109000Z",
+      "feeCents": 200,
+      "id": "69262f4b53e9bd75799f3248",
+      "netCents": 300,
+      "status": "failed",
+      "updatedAt": "2025-11-25T22:40:57.693000Z"
+    },
+    {
+      "amountCents": 500,
+      "chargeId": "cbcb9d665c1844a99a9f943e34d7c3d9",
+      "createdAt": "2025-11-25T22:33:25.175000Z",
+      "expiresAt": "2025-11-26T01:40:24.175000Z",
+      "feeCents": 200,
+      "id": "69262eb553e9bd75799f3247",
+      "netCents": 300,
+      "status": "expired",
+      "updatedAt": "2025-11-25T22:33:50.478000Z"
+    },
+    {
+      "amountCents": 500,
+      "chargeId": "6a79a55f31814e5b80bc198c2f2e21e1",
+      "createdAt": "2025-11-25T22:13:52.786000Z",
+      "expiresAt": null,
+      "feeCents": 200,
+      "id": "69262a205ae36806c729651a",
+      "netCents": 300,
+      "status": "paid",
+      "updatedAt": "2025-11-25T22:25:26.022000Z"
+    }
+  ]
+}
+

@@ -7,6 +7,7 @@ import { conceptsSections } from './concepts.jsx';
 import { walletsSection } from './endpoints/wallets';
 import { balanceSection } from './endpoints/balance';
 import { pixCreateSection } from './endpoints/pixCreate';
+import { pixListSection } from './endpoints/pixList';
 import { pixStatusSection } from './endpoints/pixStatus';
 import { withdrawalsCreateSection } from './endpoints/withdrawalsCreate';
 import { withdrawalsListSection } from './endpoints/withdrawalsList';
@@ -18,6 +19,7 @@ export const defaultSections = [
   walletsSection,
   balanceSection,
   pixCreateSection,
+  pixListSection,
   pixStatusSection,
   withdrawalsCreateSection,
   withdrawalsListSection,
