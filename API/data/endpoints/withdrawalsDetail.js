@@ -4,7 +4,7 @@ export const withdrawalsDetailSection = {
   id: 'withdrawals-detail',
   title: 'Detalhes do Saque',
   category: 'endpoints',
-  description: 'Obtém informações detalhadas de um saque específico, incluindo destino e transação associada.',
+  description: 'Obtém informações detalhadas de um saque específico, incluindo destino e transação associada. Retorna currency: "BRL" e method: "pix" para todos os saques. Inclui links.self com a URL do recurso.',
   endpoint: '/withdrawals/<wid>',
   method: 'GET',
   examples: [

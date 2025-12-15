@@ -1,10 +1,11 @@
 import pixStatusPending from '../../responses/pix/pix_status_pending.json';
+import pixStatusPaid from '../../responses/pix/pix_status_paid.json';
 
 export const pixStatusSection = {
   id: 'pix-status',
   title: 'Consultar Status PIX',
   category: 'endpoints',
-  description: 'Consulta o status e detalhes de uma transação PIX específica. Use sync=true para forçar sincronização em tempo real com o provedor. Retorna informações completas incluindo QR Code, taxas e dados raw do provedor.',
+  description: 'Consulta o status e detalhes de uma transação PIX específica. Use sync=true para forçar sincronização em tempo real com o provedor. Retorna informações completas incluindo QR Code, taxas e dados raw do provedor. Quando status = "paid", também retorna os campos paidAt (data/hora do pagamento), endToEndId (ID end-to-end do PIX) e transactionId (ID da transação).',
   endpoint: '/transactions/pix/<sale_id>',
   method: 'GET',
   examples: [
@@ -177,6 +178,10 @@ export default function PixStatusChecker() {
       `,
       response: JSON.stringify(pixStatusPending, null, 2)
     }
+  ],
+  notes: [
+    'Quando status = "pending", a resposta inclui campos como brCode, qrCodeUrl, expiresAt, payerName e payerTaxIdMasked.',
+    'Quando status = "paid", a resposta inclui adicionalmente: paidAt (ISO 8601), endToEndId (ID end-to-end do PIX) e transactionId (ID da transação do provedor).'
   ]
 };
 

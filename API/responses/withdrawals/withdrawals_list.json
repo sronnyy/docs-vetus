@@ -1,20 +1,30 @@
-[
-  {
-    "wid": "WID-20250101-1A2B3C",
-    "status": "approved",
-    "amount_cents": 10000,
-    "fee_cents": 0,
-    "currency": "BRL",
-    "method": "pix",
-    "created_at": "2025-01-01T13:00:00Z"
-  },
-  {
-    "wid": "WID-20250101-7X8Y9Z",
-    "status": "processing",
-    "amount_cents": 250000,
-    "fee_cents": 390,
-    "currency": "BRL",
-    "method": "pix",
-    "created_at": "2025-01-01T13:10:00Z"
-  }
-]
+{
+  "items": [
+    {
+      "wid": "WID-20250101-1A2B3C",
+      "transactionId": "E1234567820250101130512000000000",
+      "status": "approved",
+      "amountCents": 10000,
+      "feeCents": 0,
+      "netAmountCents": 10000,
+      "totalDebitCents": 10000,
+      "currency": "BRL",
+      "method": "pix",
+      "createdAt": "2025-01-01T13:00:00.000Z",
+      "updatedAt": "2025-01-01T13:05:12.000Z"
+    },
+    {
+      "wid": "WID-20250101-7X8Y9Z",
+      "transactionId": "",
+      "status": "processing",
+      "amountCents": 250000,
+      "feeCents": 390,
+      "netAmountCents": 249610,
+      "totalDebitCents": 250000,
+      "currency": "BRL",
+      "method": "pix",
+      "createdAt": "2025-01-01T13:10:00.000Z",
+      "updatedAt": "2025-01-01T13:10:00.000Z"
+    }
+  ]
+}

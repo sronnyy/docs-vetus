@@ -4,7 +4,7 @@ export const withdrawalsListSection = {
   id: 'withdrawals-list',
   title: 'Listar Saques',
   category: 'endpoints',
-  description: 'Lista todos os saques realizados pelo usuário, com filtros por status e paginação.',
+  description: 'Lista todos os saques realizados pelo usuário, com filtros por status e paginação. Retorna um objeto com a propriedade "items" contendo um array de saques. Cada item inclui currency: "BRL" e method: "pix".',
   endpoint: '/withdrawals',
   method: 'GET',
   examples: [

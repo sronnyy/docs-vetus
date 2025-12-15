@@ -1,26 +1,54 @@
 {
   "wid": "WID-20250101-1A2B3C",
   "status": "approved",
-  "amount_cents": 10000,
-  "fee_cents": 0,
-  "currency": "BRL",
-  "method": "pix",
-  "destination": {
-    "type": "cpf",
-    "value_masked": "***.***.***-**",
-    "bank": {
-      "ispb": "60701190",
-      "name": "ITAÚ UNIBANCO S.A."
+  "transactionId": "E1234567820250101130512000000000",
+  "transaction": {
+    "endToEndId": "E1234567820250101130512000000000",
+    "transactionID": "E1234567820250101130512000000000",
+    "creditParty": {
+      "holder": {
+        "name": "João Silva"
+      },
+      "account": {
+        "branch": "0001",
+        "account": "12345-6"
+      },
+      "psp": {
+        "name": "ITAÚ UNIBANCO S.A."
+      }
     }
   },
-  "transaction": {
-    "end_to_end_id": "E1234567820250101130512000000000",
-    "transaction_id": "tx_a1b2c3d4e5f6",
-    "paid_at": "2025-01-01T13:05:12Z"
+  "destination": {
+    "name": "João Silva",
+    "taxIDMasked": "***.***.***-**",
+    "pixKey": "12345678900",
+    "bank": "ITAÚ UNIBANCO S.A.",
+    "branch": "0001",
+    "account": "12345-6"
   },
-  "created_at": "2025-01-01T13:00:00Z",
-  "updated_at": "2025-01-01T13:05:12Z",
+  "balances": {
+    "current": {
+      "availableCents": 500000,
+      "lockedCents": 0
+    },
+    "after": {
+      "availableCents": 490000,
+      "lockedCents": 0
+    }
+  },
+  "wallet": {
+    "available_cents": 490000,
+    "locked_cents": 0
+  },
+  "amountCents": 10000,
+  "feeCents": 0,
+  "netAmountCents": 10000,
+  "totalDebitCents": 10000,
+  "currency": "BRL",
+  "method": "pix",
+  "createdAt": "2025-01-01T13:00:00.000Z",
+  "updatedAt": "2025-01-01T13:05:12.000Z",
   "links": {
-    "self": "/withdrawals/WID-20250101-1A2B3C"
+    "self": "/api/public/v1/withdrawals/WID-20250101-1A2B3C"
   }
 }
